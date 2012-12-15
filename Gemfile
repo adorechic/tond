@@ -44,4 +44,5 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'spork'
 end

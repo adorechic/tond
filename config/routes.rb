@@ -1,4 +1,6 @@
 Tond::Application.routes.draw do
+  get "top/index"
+
   devise_for :users
 
   # The priority is based upon order of creation:

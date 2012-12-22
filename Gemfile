@@ -49,3 +49,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara-webkit'
 end
+
+group :development do
+  gem 'growl'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'rb-fsevent', :require => false
+end

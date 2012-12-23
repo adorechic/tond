@@ -9,4 +9,10 @@ describe RoomsController do
 
     it { should render_template 'index' }
   end
+
+  describe '#new' do
+    subject { get :new }
+
+    it { should render_template 'new' }
+  end
 end

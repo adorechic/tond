@@ -10,6 +10,10 @@ describe "User can handle room" do
       visit rooms_path
 
       click_link 'New Room'
+      fill_in 'Name', with: 'Test Room Name'
+      click_on 'Create'
+
+      should have_content 'Test Room Name'
     end
   end
 end

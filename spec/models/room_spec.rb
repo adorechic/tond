@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Room do
   describe 'model paranoid' do
-    let!(:active_one) { create(:room) }
+    let!(:active_one)  { create(:room) }
     let!(:deleted_one) { create(:room, deleted_at: Time.now) }
     subject { Room.all }
 

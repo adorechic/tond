@@ -24,3 +24,6 @@ you can run all specs like below
 ```
 rake
 ```
+
+## CI
+https://travis-ci.org/adorechic/tond

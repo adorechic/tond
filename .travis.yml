@@ -4,4 +4,7 @@ rvm:
 env:
   - DB=sqlite
 script:
-  - RAILS_ENV=test bundle exec rake
+  - RAILS_ENV=test bundle exec rake db:migrate spec
+branches:
+  only:
+    - master

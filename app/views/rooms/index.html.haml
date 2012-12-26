@@ -2,3 +2,7 @@
   Rooms
 
 =link_to 'New Room', new_room_path
+
+%ul
+  - @rooms.each do |room|
+    %li= link_to room.name, room_path(room)

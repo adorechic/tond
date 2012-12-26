@@ -14,6 +14,9 @@ describe "User can handle room" do
       click_on 'Create'
 
       should have_content 'Test Room Name'
+
+      visit rooms_path
+      should have_content 'Test Room Name'
     end
   end
 end

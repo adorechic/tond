@@ -5,9 +5,16 @@ describe RoomsController do
   before { login_user }
 
   describe '#index' do
-    subject { get :index }
+    before do
+      2.times { create :room }
+    end
+
+    subject { response }
+    before { get :index }
 
     it { should render_template 'index' }
+
+    it { assigns[:rooms].should have(2).rooms }
   end
 
   describe '#new' do

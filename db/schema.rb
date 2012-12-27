@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225130431) do
+ActiveRecord::Schema.define(:version => 20121227121356) do
+
+  create_table "messages", :force => true do |t|
+    t.integer  "room_id"
+    t.string   "body"
+    t.datetime "deleted_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "messages", ["room_id"], :name => "index_messages_on_room_id"
 
   create_table "rooms", :force => true do |t|
     t.string   "name"

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -47,7 +47,8 @@ group :development, :test do
   gem 'spork'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'capybara-webkit'
+  gem 'capybara', '~> 1.1.4'
+  gem 'capybara-webkit', '~> 0.13.0'
 end
 
 group :development do

@@ -33,7 +33,11 @@ describe MessagesController do
     let(:message) { { body: 'Test Message' } }
     let(:room) { create :room }
 
-    it { should redirect_to room_messages_path(room) }
+    it 'returns json' do
+      res = JSON.parse(response.body)
+      res['status'].should eq 'success'
+      res['data']['body'].should eq message[:body]
+    end
 
     it { assigns[:message].should be_a Message }
     it { assigns[:message].should be_persisted }

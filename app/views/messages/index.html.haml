@@ -5,13 +5,14 @@
   - @room.messages.each do |message|
     %li= message.body
 
-= form_for @message, url: room_messages_path(@room) do |f|
-  - if @message.errors.any?
-    %ul
-      - @message.errors.full_messages.each do |msg|
-        %li= msg
-  .field
-    = f.label :body
-    = f.text_field :body
-  .actions
-    = f.submit 'Post'
+#post_message
+  = form_for @message, url: room_messages_path(@room), remote: true do |f|
+    - if @message.errors.any?
+      %ul
+        - @message.errors.full_messages.each do |msg|
+          %li= msg
+    .field
+      = f.label :body
+      = f.text_field :body
+    .actions
+      = f.submit 'Post'

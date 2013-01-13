@@ -8,8 +8,10 @@ class MessagesController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id])
-    @message = @room.messages.create!(params[:message])
+    @message = @room.messages.create(params[:message])
 
-    redirect_to room_messages_path(@room)
+    status = @message ? 'success' : 'failure'
+
+    render json: { status: status, data: @message }
   end
 end

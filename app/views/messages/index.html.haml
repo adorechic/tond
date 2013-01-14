@@ -1,5 +1,8 @@
+- content_for :header do
+  = javascript_include_tag 'http://js.pusher.com/1.12/pusher.min.js'
 %h2
   = @room.name
+%div{:id => 'channel_id', 'data-channel-id' => @channel_id}
 
 %ul#messages
   - @room.messages.each do |message|
@@ -16,3 +19,11 @@
       = f.text_field :body
     .actions
       = f.submit 'Post'
+
+:javascript
+  var channelId = $('#channel_id').data('channelId');
+  var pusher = new Pusher('dadb32bb73947d1aaa31');
+  var channel = pusher.subscribe(channelId);
+  channel.bind('create', function(data) {
+    $('#messages').append('<li>' + data.body + '</li>')
+  });

@@ -60,6 +60,6 @@ module Tond
     config.assets.version = '1.0'
 
     # If deploy to Heroku, this line must be set for devise
-    # config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = false
   end
 end

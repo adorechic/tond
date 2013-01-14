@@ -3,6 +3,7 @@
 %h2
   = @room.name
 %div{:id => 'channel_id', 'data-channel-id' => @channel_id}
+%div{:id => 'pusher_key', 'data-pusher-key' => Pusher.key}
 
 %ul#messages
   - @room.messages.each do |message|
@@ -22,6 +23,7 @@
 
 :javascript
   var channelId = $('#channel_id').data('channelId');
+  var pusherKey = $('#pusher_key').data('pusherKey');
   var pusher = new Pusher('dadb32bb73947d1aaa31');
   var channel = pusher.subscribe(channelId);
   channel.bind('create', function(data) {

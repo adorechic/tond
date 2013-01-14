@@ -6,6 +6,7 @@ gem 'pg'
 gem 'devise'
 gem 'haml-rails'
 gem 'acts_as_paranoid', '~>0.4.0'
+gem 'pusher'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara', '~> 1.1.4'
   gem 'capybara-webkit', '~> 0.13.0'
+  gem 'launchy'
 end
 
 group :development do

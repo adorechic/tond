@@ -1,3 +1,9 @@
+require 'pusher'
+
+Pusher.app_id = '35264'
+Pusher.key    = 'dadb32bb73947d1aaa31'
+Pusher.secret = '39a231d679f733caaca4'
+
 Tond::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

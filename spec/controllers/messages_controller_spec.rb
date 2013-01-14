@@ -12,6 +12,7 @@ describe MessagesController do
 
       it { assigns[:room].messages.should eq [] }
       it { assigns[:message].should be_a_new Message }
+      it { assigns[:channel_id].should eq "room_#{room.id}_messages" }
       it { should render_template 'index' }
     end
 
@@ -29,6 +30,15 @@ describe MessagesController do
   end
 
   describe '#create' do
+    before do
+      pusher_mock = mock
+      Pusher.should_receive(:[]).with("room_#{room.id}_messages").
+        and_return(pusher_mock)
+      pusher_mock.should_receive(:trigger).with(
+        'create', body: message[:body]
+      )
+    end
+
     before { post :create, room_id: room.id, message: message }
     let(:message) { { body: 'Test Message' } }
     let(:room) { create :room }

@@ -4,5 +4,4 @@ $ ->
       response = $.parseJSON(ajax.responseText)
       body = response.data.body
 
-      $('#messages').append('<li>' + body + '</li')
       $('#message_body').attr('value', '')

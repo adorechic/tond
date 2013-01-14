@@ -2,9 +2,11 @@ language: ruby
 rvm:
   - "1.9.3"
 env:
-  - DB=sqlite
+  - DB=postgresql
 script:
   - RAILS_ENV=test bundle exec rake db:migrate spec
+before_script:
+  - psql -c 'create database test_tond' -U postgres
 branches:
   only:
     - master

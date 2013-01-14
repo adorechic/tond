@@ -24,7 +24,7 @@
 :javascript
   var channelId = $('#channel_id').data('channelId');
   var pusherKey = $('#pusher_key').data('pusherKey');
-  var pusher = new Pusher('dadb32bb73947d1aaa31');
+  var pusher = new Pusher(pusherKey);
   var channel = pusher.subscribe(channelId);
   channel.bind('create', function(data) {
     $('#messages').append('<li>' + data.body + '</li>')

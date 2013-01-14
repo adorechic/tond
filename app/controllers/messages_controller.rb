@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
 
       Pusher[@channel_id].trigger(
         'create', {
-        :body => @message.body
+        body: @message.body
       })
     else
       status = 'failure'

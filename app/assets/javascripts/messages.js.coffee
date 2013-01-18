@@ -11,4 +11,4 @@ $ ->
   pusher = new Pusher(pusherKey)
   channel = pusher.subscribe(channelId)
   channel.bind 'create', (data) ->
-    $('#messages').append('<li>' + data.body + '</li>')
+    $('#messages').append('<tr><td>' + data.body + '</td></tr>')

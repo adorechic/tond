@@ -5,9 +5,10 @@
 %div{:id => 'channel_id', 'data-channel-id' => @channel_id}
 %div{:id => 'pusher_key', 'data-pusher-key' => Pusher.key}
 
-%ul#messages
+%table.table.table-condensed#messages
   - @room.messages.each do |message|
-    %li= message.body
+    %tr
+      %td= message.body
 
 #post_message
   = form_for @message, url: room_messages_path(@room), remote: true do |f|

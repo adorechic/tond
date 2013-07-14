@@ -1,31 +1,24 @@
 - content_for :header do
   = javascript_include_tag 'http://js.pusher.com/1.12/pusher.min.js'
-%h2
-  = @room.name
-%div{:id => 'channel_id', 'data-channel-id' => @channel_id}
-%div{:id => 'pusher_key', 'data-pusher-key' => Pusher.key}
 
-%ul#messages
-  - @room.messages.each do |message|
-    %li= message.body
+#container
+  %div{:id => 'channel_id', 'data-channel-id' => @channel_id}
+  %div{:id => 'pusher_key', 'data-pusher-key' => Pusher.key}
 
-#post_message
+  %h2= @room.name
+
+  #messages
+    %table.table.table-condensed
+      - @room.messages.each do |message|
+        %tr
+          %td= message.body
+
+- content_for :special_footer do
   = form_for @message, url: room_messages_path(@room), remote: true do |f|
     - if @message.errors.any?
       %ul
         - @message.errors.full_messages.each do |msg|
           %li= msg
-    .field
-      = f.label :body
-      = f.text_field :body
-    .actions
-      = f.submit 'Post'
-
-:javascript
-  var channelId = $('#channel_id').data('channelId');
-  var pusherKey = $('#pusher_key').data('pusherKey');
-  var pusher = new Pusher(pusherKey);
-  var channel = pusher.subscribe(channelId);
-  channel.bind('create', function(data) {
-    $('#messages').append('<li>' + data.body + '</li>')
-  });
+    .input-append
+      = f.text_field :body, class: 'span8'
+      = f.submit 'Post', class: 'btn'

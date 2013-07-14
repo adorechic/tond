@@ -9,9 +9,10 @@ describe "room messages" do
   it "user add message to room and see it", js: true do
     visit room_messages_path(room)
 
-    fill_in 'Body', with: 'Sample POST'
+    fill_in 'message_body', with: 'Sample POST'
     click_on 'Post'
 
     should have_content 'Sample POST'
+    expect(find('#messages').text).to eq 'Sample POST'
   end
 end

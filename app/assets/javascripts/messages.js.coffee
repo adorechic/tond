@@ -5,3 +5,10 @@ $ ->
       body = response.data.body
 
       $('#message_body').attr('value', '')
+
+  channelId = $('#channel_id').data('channelId')
+  pusherKey = $('#pusher_key').data('pusherKey')
+  pusher = new Pusher(pusherKey)
+  channel = pusher.subscribe(channelId)
+  channel.bind 'create', (data) ->
+    $('#messages').append('<tr><td>' + data.body + '</td></tr>')

@@ -13,5 +13,6 @@ describe "room messages" do
     click_on 'Post'
 
     should have_content 'Sample POST'
+    expect(find('#messages').text).to eq 'Sample POST'
   end
 end

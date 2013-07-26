@@ -50,8 +50,8 @@ group :development, :test do
   gem 'spork'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'capybara', '~> 1.1.4'
-  gem 'capybara-webkit', '~> 0.13.0'
+  gem 'capybara', '~> 2.1.0'
+  gem 'capybara-webkit', '~> 1.0.0'
   gem 'launchy'
 end
 

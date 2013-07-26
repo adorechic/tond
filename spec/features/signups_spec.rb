@@ -28,7 +28,9 @@ describe "User can signup and signin" do
     it 'User can sign out' do
       visit root_path
 
-      click_link 'ログアウト'
+      within '.nav' do
+        click_link 'ログアウト'
+      end
 
       should have_content 'Sign in'
       visit root_path
@@ -58,7 +60,9 @@ describe "User can signup and signin" do
       should have_content 'Your password was changed successfully.'
       should have_content 'You are now signed in.'
 
-      click_link 'ログアウト'
+      within '.nav' do
+        click_link 'ログアウト'
+      end
 
       fill_in 'Email', with: user.email
       fill_in 'Password', with: 'newpassword'

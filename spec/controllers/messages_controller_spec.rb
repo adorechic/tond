@@ -31,7 +31,7 @@ describe MessagesController do
 
   describe '#create' do
     before do
-      pusher_mock = mock
+      pusher_mock = double
       Pusher.should_receive(:[]).with("room_#{room.id}_messages").
         and_return(pusher_mock)
       pusher_mock.should_receive(:trigger).with(

@@ -46,13 +46,14 @@ group :development, :test do
   gem 'pry'
   gem 'pry-doc'
   gem 'pry-rails'
-  gem 'rspec-rails'
   gem 'spork'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara', '~> 2.1.0'
   gem 'capybara-webkit', '~> 1.0.0'
   gem 'launchy'
+  gem 'rspec', '~> 2.14.1'
+  gem 'rspec-rails', '~> 2.14.0'
 end
 
 group :development do

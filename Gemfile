@@ -7,6 +7,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'rails4_acts_as_paranoid', '~> 0.1.4'
 gem 'pusher'
+gem 'protected_attributes'
 
 # Gems used only for assets and not required
 # in production environments by default.

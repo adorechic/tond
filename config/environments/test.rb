@@ -40,4 +40,6 @@ Tond::Application.configure do
 
   # Devise options
   config.action_mailer.default_url_options = { :host => 'example.com' }
+
+  config.eager_load = false
 end
